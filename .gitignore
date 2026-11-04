@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Local data and generated artifacts
+data/benchmarks/**/*
+data/workload_traces/**/*
+data/public_workloads/**/*
+!data/public_workloads/**/
+!data/public_workloads/**/README.md
+outputs/
+artifacts_*/
+experiments/models/
+experiments/results/
+experiments/snapshots/
+
+# Local model and result files
+*.joblib
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.csv
+*.parquet
+*.jsonl
+*.png
+*.pdf
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
