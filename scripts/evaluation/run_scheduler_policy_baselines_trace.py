@@ -2,11 +2,17 @@ import argparse
 import copy
 import json
 import os
+import sys
 from math import isfinite
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
 import numpy as np
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from tepqos import batch_eval
 from scripts.evaluation import run_scheduler_policy_baselines as baselines
