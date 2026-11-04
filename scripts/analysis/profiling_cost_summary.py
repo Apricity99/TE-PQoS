@@ -25,7 +25,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def dataset_groups() -> dict[str, list[dict[str, Any]]]:
-    import train_gbdt_multi as train
+    from tepqos import training as train
     from scripts.evaluation.run_qwen_scale_v1 import QWEN_DATASETS
 
     llama = [

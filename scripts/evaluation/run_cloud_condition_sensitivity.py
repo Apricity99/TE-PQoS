@@ -15,7 +15,7 @@ DEFAULT_REPORT_ROOT = ROOT / "outputs/reports/20260716_cloud_condition_sensitivi
 SOURCE_CATALOG = ROOT / "scheduler_catalog.json"
 ARTIFACTS = ROOT / "outputs/runs/20260711_llama_burstgpt_v1/models/burstgpt_final500"
 WORKLOAD = ROOT / "data/workload_traces/burstgpt_stratified500_bucketed.csv"
-EVAL_SCRIPT = ROOT / "run_scheduler_policy_baselines_trace.py"
+EVAL_SCRIPT = ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py"
 
 
 SCENARIOS: dict[str, dict[str, float]] = {

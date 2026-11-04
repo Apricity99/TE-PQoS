@@ -24,7 +24,7 @@ MODEL_SOURCE = (
     / "main_controlled"
 )
 CATALOG = ROOT / "scheduler_catalog.json"
-RUNNER = ROOT / "run_scheduler_batch_eval.py"
+RUNNER = ROOT / "scripts" / "evaluation" / "run_scheduler_batch_eval.py"
 COMPONENTS = ("calibration", "risk_buffer", "edge_rescue")
 CASE_KEYS = [
     "device_id",

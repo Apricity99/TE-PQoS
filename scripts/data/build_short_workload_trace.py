@@ -4,7 +4,7 @@ import json
 import os
 from typing import Dict, List, Optional
 
-from public_workload_trace import DEFAULT_LENGTH_BUCKETS, build_bucketed_trace, parse_int_list
+from tepqos.workloads import DEFAULT_LENGTH_BUCKETS, build_bucketed_trace, parse_int_list
 
 
 def parse_args() -> argparse.Namespace:

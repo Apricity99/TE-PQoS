@@ -10,6 +10,7 @@ This repository contains the prediction, calibration, ranking, cloud-reference, 
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
+python -m pip install -e .
 python -m unittest discover -s tests -p 'test_*.py'
 ```
 
@@ -23,12 +24,13 @@ The full experiment pipeline requires the profiling tables and workload traces d
 
 ## Main components
 
-- `perf_feature_utils.py`: workload, configuration, calibration, and ranking features.
-- `train_gbdt_multi.py`: p95-latency/throughput predictors, residual calibration, and pairwise ranking.
-- `scheduler.py`: risk-aware candidate filtering, tiered SLO admission, edge rescue, and cloud fallback.
-- `run_scheduler_policy_baselines.py`: controlled-workload baseline evaluation.
-- `run_scheduler_policy_baselines_trace.py`: trace-replay evaluation.
-- `scripts/`: data preparation, analysis, evaluation, and plotting utilities.
+- `src/tepqos/features.py`: workload, configuration, calibration, and ranking features.
+- `src/tepqos/training.py`: p95-latency/throughput predictors, residual calibration, and pairwise ranking.
+- `src/tepqos/scheduler.py`: risk-aware candidate filtering, tiered SLO admission, edge rescue, and cloud fallback.
+- `scripts/training/`: predictor training, prediction, and model-baseline commands.
+- `scripts/evaluation/`: controlled-workload, trace-replay, batch, Qwen, and sensitivity commands.
+- `scripts/data/`: profiling and public-workload preparation commands.
+- `scripts/analysis/` and `scripts/plotting/`: paper analysis and visualization utilities.
 - `experiments/run_unified_dual_experiments.py`: unified launcher for the paper's two principal evaluation regimes.
 
 ## Data and artifacts

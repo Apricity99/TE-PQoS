@@ -41,7 +41,7 @@ def _profile_definitions(*, strict_same_branch: bool = False) -> Dict[str, Dict[
             "main_controlled": {
                 "description": "Controlled main experiment with main-data training and the strict same-branch unified scheduler.",
                 "train_extra": [],
-                "eval_script": PP_ROOT / "run_scheduler_policy_baselines.py",
+                    "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines.py",
                 "eval_extra": [
                     "--catalog",
                     str(PP_ROOT / "scheduler_catalog.json"),
@@ -63,7 +63,7 @@ def _profile_definitions(*, strict_same_branch: bool = False) -> Dict[str, Dict[
                     "--trace-weight-max",
                     "4.0",
                 ],
-                "eval_script": PP_ROOT / "run_scheduler_policy_baselines_trace.py",
+                "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
                 "eval_extra": [
                     "--catalog",
                     str(PP_ROOT / "scheduler_catalog.json"),
@@ -80,7 +80,7 @@ def _profile_definitions(*, strict_same_branch: bool = False) -> Dict[str, Dict[
         "main_controlled": {
             "description": "Controlled main experiment with main-data training and the unified scheduler core rule.",
             "train_extra": [],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines.py",
             "eval_extra": [
                 "--catalog",
                 str(PP_ROOT / "scheduler_catalog.json"),
@@ -110,7 +110,7 @@ def _profile_definitions(*, strict_same_branch: bool = False) -> Dict[str, Dict[
                 "--trace-weight-max",
                 "4.0",
             ],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines_trace.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
             "eval_extra": [
                 "--catalog",
                 str(PP_ROOT / "scheduler_catalog.json"),
@@ -175,7 +175,7 @@ def train_command(profile_name: str) -> List[str]:
     model_dir = profile_model_dir(profile_name)
     return [
         sys.executable,
-        str(PP_ROOT / "train_gbdt_multi.py"),
+        str(PP_ROOT / "scripts" / "training" / "train_gbdt_multi.py"),
         "--outdir",
         str(model_dir),
         *profile["train_extra"],
@@ -285,7 +285,7 @@ def build_summary(profile_names: Iterable[str]) -> None:
         "- `main_controlled`: separate training on controlled profiling data, evaluated on the controlled main experiment.",
         "- `short_trace_final500`: separate training with WildChat-short trace weighting, evaluated on short-trace final500.",
         "",
-        "Both profiles use the same scheduler code in `scheduler.py`; they differ only in training data and profile-specific scheduler arguments.",
+        "Both profiles use the same scheduler code in `src/tepqos/scheduler.py`; they differ only in training data and profile-specific scheduler arguments.",
         "",
     ]
     for profile_name in profile_names:

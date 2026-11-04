@@ -9,7 +9,7 @@ from typing import Dict, Iterable, List, Optional
 import polars as pl
 import tiktoken
 
-from public_workload_trace import build_bucketed_trace
+from tepqos.workloads import build_bucketed_trace
 
 
 def parse_args() -> argparse.Namespace:

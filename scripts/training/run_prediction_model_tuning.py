@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import HistGradientBoostingRegressor
 
-from perf_feature_utils import build_feature_frame
-from run_prediction_model_baselines import baseline_models, fit_log_model, metric_dict
-from train_gbdt_multi import (
+from tepqos.features import build_feature_frame
+from tepqos.model_baselines import baseline_models, fit_log_model, metric_dict
+from tepqos.training import (
     align_columns,
     build_trace_sample_weights,
     fit_p95_calibrator,

@@ -4,10 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tepqos-repro"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reproducibility source for TE-PQoS edge-cloud LLM scheduling"
 requires-python = ">=3.10"
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = ["src", "."]
 testpaths = ["tests"]

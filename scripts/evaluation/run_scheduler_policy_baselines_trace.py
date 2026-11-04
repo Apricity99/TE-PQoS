@@ -8,9 +8,9 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 import numpy as np
 
-import run_scheduler_batch_eval as batch_eval
-import run_scheduler_policy_baselines as baselines
-from public_workload_trace import load_trace_workload_cases
+from tepqos import batch_eval
+from scripts.evaluation import run_scheduler_policy_baselines as baselines
+from tepqos.workloads import load_trace_workload_cases
 
 
 DEFAULT_OUTDIR = os.path.join("artifacts_gbdt_multi", "scheduler_policy_baselines_public_trace")

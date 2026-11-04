@@ -10,7 +10,7 @@ data/workload_traces/wildchat_turn_trace_short_bucketed.csv
 data/workload_traces/burstgpt_stratified500_bucketed.csv
 ```
 
-The benchmark CSVs must contain the columns expected by `perf_feature_utils.py`, including request shape, device/configuration identity, measured p95 latency, throughput, success counts, and peak memory. The exact source-group layout used by the paper is encoded in `train_gbdt_multi.py` and `scripts/evaluation/run_qwen_scale_v1.py`.
+The benchmark CSVs must contain the columns expected by `src/tepqos/features.py`, including request shape, device/configuration identity, measured p95 latency, throughput, success counts, and peak memory. The exact source-group layout used by the paper is encoded in `src/tepqos/training.py` and `scripts/evaluation/run_qwen_scale_v1.py`.
 
 ## Preparing public traces
 
@@ -40,8 +40,8 @@ python experiments/run_unified_dual_experiments.py all --strict-same-branch
 For a direct controlled run, the essential sequence is:
 
 ```bash
-python train_gbdt_multi.py --outdir outputs/runs/controlled/models
-python run_scheduler_policy_baselines.py \
+python scripts/training/train_gbdt_multi.py --outdir outputs/runs/controlled/models
+python scripts/evaluation/run_scheduler_policy_baselines.py \
   --artifacts-dir outputs/runs/controlled/models \
   --prediction-table-csv outputs/runs/controlled/models/combined_perf_with_pred.csv \
   --outdir outputs/runs/controlled/results \

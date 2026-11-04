@@ -15,8 +15,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from perf_feature_utils import build_feature_frame
-from train_gbdt_multi import (
+from .features import build_feature_frame
+from .training import (
     align_columns,
     build_trace_sample_weights,
     fit_p95_calibrator,

@@ -139,7 +139,7 @@ def profile_definitions(run_root: Path, catalog_path: Path) -> Dict[str, Dict[st
             "model_dir": run_root / "models" / "main_controlled",
             "result_dir": run_root / "results" / "main_controlled",
             "train_extra": [],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines.py",
             "eval_extra": [
                 *shared_eval,
                 "--optimize-for",
@@ -165,7 +165,7 @@ def profile_definitions(run_root: Path, catalog_path: Path) -> Dict[str, Dict[st
                 "--trace-weight-max",
                 "4.0",
             ],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines_trace.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
             "eval_extra": [
                 *shared_eval,
                 "--workload-csv",
@@ -199,7 +199,7 @@ def profile_definitions(run_root: Path, catalog_path: Path) -> Dict[str, Dict[st
                 "--trace-weight-max",
                 "4.0",
             ],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines_trace.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
             "eval_extra": [
                 *shared_eval,
                 "--workload-csv",
@@ -233,7 +233,7 @@ def profile_definitions(run_root: Path, catalog_path: Path) -> Dict[str, Dict[st
                 "--trace-weight-max",
                 "4.0",
             ],
-            "eval_script": PP_ROOT / "run_scheduler_policy_baselines_trace.py",
+            "eval_script": PP_ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
             "eval_extra": [
                 *shared_eval,
                 "--workload-csv",
@@ -291,13 +291,13 @@ def write_enabled_catalog(run_root: Path) -> Path:
 
 
 def qwen_dataset_specs() -> List[Any]:
-    import train_gbdt_multi as train
+    from tepqos import training as train
 
     return [train.DatasetSpec(**item) for item in QWEN_DATASETS]
 
 
 def run_train(profile_name: str, profile: Dict[str, Any]) -> None:
-    import train_gbdt_multi as train
+    from tepqos import training as train
 
     model_dir = Path(profile["model_dir"])
     model_dir.mkdir(parents=True, exist_ok=True)

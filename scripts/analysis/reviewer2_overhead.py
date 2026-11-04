@@ -15,8 +15,8 @@ import sklearn
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
-import run_scheduler_batch_eval as batch_eval
-import scheduler
+from tepqos import batch_eval
+from tepqos import scheduler
 
 
 DEFAULT_EXPERIMENT = "20260715_reviewer2_overhead_v2"
@@ -94,7 +94,7 @@ def train_profiles(run_root: Path) -> list[dict[str, object]]:
         profile_root = run_root / f"train_{name}"
         model_dir = profile_root / "models"
         profile_root.mkdir(parents=True)
-        cmd = [sys.executable, str(ROOT / "train_gbdt_multi.py"), "--outdir", str(model_dir), *extra]
+        cmd = [sys.executable, str(ROOT / "scripts" / "training" / "train_gbdt_multi.py"), "--outdir", str(model_dir), *extra]
         (profile_root / "command.txt").write_text(" ".join(cmd) + "\n", encoding="utf-8")
         started = time.perf_counter()
         completed = subprocess.run(

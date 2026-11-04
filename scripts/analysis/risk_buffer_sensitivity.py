@@ -21,7 +21,7 @@ FINAL = ROOT / "final" / "unified_scheduler_dual_experiments_v1"
 PROFILES = {
     "main_controlled": {
         "model_src": FINAL / "models" / "main_controlled",
-        "eval_script": ROOT / "run_scheduler_policy_baselines.py",
+        "eval_script": ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines.py",
         "eval_extra": [
             "--catalog",
             str(ROOT / "scheduler_catalog.json"),
@@ -42,7 +42,7 @@ PROFILES = {
     },
     "short_trace_final500": {
         "model_src": FINAL / "models" / "short_trace_final500",
-        "eval_script": ROOT / "run_scheduler_policy_baselines_trace.py",
+        "eval_script": ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py",
         "eval_extra": [
             "--catalog",
             str(ROOT / "scheduler_catalog.json"),

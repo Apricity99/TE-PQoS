@@ -23,7 +23,7 @@ MODEL_SOURCE = (
 )
 TRACE_CSV = ROOT / "data" / "workload_traces" / "wildchat_turn_trace_short_bucketed.csv"
 CATALOG = ROOT / "scheduler_catalog.json"
-RUNNER = ROOT / "run_scheduler_policy_baselines_trace.py"
+RUNNER = ROOT / "scripts" / "evaluation" / "run_scheduler_policy_baselines_trace.py"
 
 
 STAGES = [

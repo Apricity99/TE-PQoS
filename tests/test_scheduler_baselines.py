@@ -1,6 +1,6 @@
 import unittest
 
-import run_scheduler_policy_baselines as baselines
+from scripts.evaluation import run_scheduler_policy_baselines as baselines
 
 
 def candidate(

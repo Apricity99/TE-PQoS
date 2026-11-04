@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import train_gbdt_multi as train
-from perf_feature_utils import TARGET_COLS, add_workload_features, build_feature_frame
-from run_prediction_model_baselines import metric_dict
+from tepqos import training as train
+from tepqos.features import TARGET_COLS, add_workload_features, build_feature_frame
+from tepqos.model_baselines import metric_dict
 
 DEFAULT_RUN_ROOT = ROOT / "outputs" / "runs" / "20260914_predictor_generalization_robustness_v1"
 DEFAULT_REPORT_ROOT = ROOT / "outputs" / "reports" / "20260914_predictor_generalization_robustness_v1"
